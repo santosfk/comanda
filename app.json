@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "comanda",
+    "slug": "comanda",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
