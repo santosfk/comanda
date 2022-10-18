@@ -1,6 +1,10 @@
 import React from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 
 export const WaiterScreen = () => {
-  return <View>WaiterScreen</View>;
+  return (
+    <View>
+      <Text>waiter page</Text>
+    </View>
+  );
 };

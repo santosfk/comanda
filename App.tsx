@@ -4,12 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { InitialRoutes } from "./src/Routes";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <InitialRoutes />
-      <StatusBar style="auto" />
-    </View>
-  );
+  return <InitialRoutes />;
 }
 
 const styles = StyleSheet.create({

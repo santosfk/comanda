@@ -8,9 +8,9 @@ const { Screen, Navigator } = createNativeStackNavigator();
 export const CheckinRoutes = () => {
   return (
     <Navigator>
-      <Screen name="Checkin" component={Checkin} />
+      <Screen name="checkin" component={Checkin} />
       <Screen name="client" component={ClientScreen} />
-      <Screen name="Waiter" component={WaiterScreen} />
+      <Screen name="waiter" component={WaiterScreen} />
     </Navigator>
   );
 };

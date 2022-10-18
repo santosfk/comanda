@@ -1,6 +1,10 @@
 import React from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 
 export const ClientScreen = () => {
-  return <View>ClientScreen</View>;
+  return (
+    <View>
+      <Text>client page</Text>
+    </View>
+  );
 };
