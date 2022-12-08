@@ -6,7 +6,13 @@ import { HomeRoutes } from "./HomeRoutes";
 const { Screen, Navigator } = createNativeStackNavigator();
 export const CheckinRoutes = () => {
   return (
-    <Navigator>
+    <Navigator
+    screenOptions={{
+      headerShown: true,
+      headerTintColor:'#26A58E'
+     
+    }}
+    >
       <Screen name="checkin" component={Checkin} />
       <Screen name="home" component={HomeRoutes} />
     </Navigator>
