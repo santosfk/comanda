@@ -23,7 +23,7 @@ export const Checkin = () => {
       <LogoWrapper>
       <Image
         
-        source={require('../../assets/comanda.png')}
+        source={require('../../assets/comanda-logo.png')}
       />
         <LogoText>
         ANOTE SEUS PEDIDOS SEM ERRO!!
@@ -33,11 +33,8 @@ export const Checkin = () => {
         <EnterButton onPress={goToHome}>
           <ButtonText>Entrar</ButtonText>
         </EnterButton>
-        <ExitButton onPress={goToHome}>
-          <ButtonText>Sair</ButtonText>
-        </ExitButton>
       </ButtonWrapper>
-      <MaterialCommunityIcons name='hamburger' size={50} color='black'/>
+      <MaterialCommunityIcons name='hamburger' size={50} color='#26A58E'/>
     </Container>
   );
 };
