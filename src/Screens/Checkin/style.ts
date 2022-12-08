@@ -5,11 +5,11 @@ align-items: center;
 flex: 1;
  `
  export const EnterButton  = styled.Pressable`
- background-color: red;
+ background-color: #2EDBBC;
 align-items: center;
 justify-content: center;
-padding: 30px 100px;
-border-radius: 15;
+padding: 20px 100px;
+border-radius: 10;
  `
  export const ExitButton = styled.Pressable`
 background-color: black;
@@ -34,5 +34,5 @@ justify-content: center;
 align-items: center;
  `
  export const LogoText =styled.Text`
- color: red;
+ color: #26A58E;
  `
