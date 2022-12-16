@@ -3,6 +3,7 @@
     "name": "comanda",
     "slug": "comanda",
     "version": "1.0.0",
+    "userInterfaceStyle":"automatic",
     "assetBundlePatterns": [
       "**/*"
     ]
