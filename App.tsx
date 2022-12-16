@@ -1,10 +1,17 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React, { useEffect } from "react";
+import { StyleSheet, Text, View, useColorScheme } from "react-native";
+import { ThemeProvider } from "styled-components";
 import { InitialRoutes } from "./src/Routes";
-
+import theme from "./src/theme";
 export default function App() {
-  return <InitialRoutes />;
+  const deviceTheme = useColorScheme();
+
+  return (
+    <ThemeProvider theme={deviceTheme == "dark" ? theme.dark : theme.light}>
+      <InitialRoutes />
+    </ThemeProvider>
+  );
 }
 
 const styles = StyleSheet.create({
