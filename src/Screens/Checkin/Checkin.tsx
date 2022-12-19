@@ -16,7 +16,7 @@ import  MaterialCommunityIcons  from '@expo/vector-icons/MaterialCommunityIcons'
 export const Checkin = () => {
   const navigation = useNavigation<propsStack>();
   const goToHome = () => {
-    navigation.navigate("home");
+    navigation.navigate("getName");
   };
   return (
     <Container>
