@@ -1,0 +1,1 @@
+export {GetName} from './GetName'

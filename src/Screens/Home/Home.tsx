@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { View, Text } from "react-native";
+import { Container } from "./style";
 
 export const Home = () => {
   return (
-    <View>
+    <Container>
       <Text>Home</Text>
-    </View>
+    </Container>
   );
 };
