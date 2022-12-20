@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 export const Container = styled.View`
   padding: 20px 20px;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   flex: 1;
 `;
@@ -19,9 +19,11 @@ export const NameInput = styled.TextInput`
   margin-left: 10px;
 `;
 export const Line = styled.View`
-  width: 100px;
-  height: 5px;
-  background-color: black;
+  width: 150px;
+  height: 3px;
+  margin-left: 40px;
+  margin-top: -10px;
+  background: rgba(80, 79, 73, 0.65);
 `;
 
 export const InputWrapper = styled.View`

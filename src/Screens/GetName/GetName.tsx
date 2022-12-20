@@ -1,23 +1,34 @@
 import { View, Text, TextInput } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import {
   Container,
   Title,
   InputsContainer,
   NameInput,
   InputWrapper,
+  Line,
 } from "./style";
-import { Feather } from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons";
 
 export const GetName = () => {
+  const [userIconColor, setUserIconColor] = useState("#000");
+  const userIconIsFocused = () => {
+    setUserIconColor("#2EDBBC");
+  };
+ 
   return (
     <Container>
       <Title>Precisamos Saber seu nome</Title>
       <InputsContainer>
         <InputWrapper>
-          <Feather name="user" size={20} color="green" />
-          <NameInput placeholder="useless placeholder" />
+          <FontAwesome name="user" size={22} color={userIconColor} />
+          <NameInput
+            placeholder="digite seu nome"
+            placeholderTextColor="rgba(16, 216, 168, 0.37)"
+            onFocus={userIconIsFocused} 
+          />
         </InputWrapper>
+        <Line />
       </InputsContainer>
     </Container>
   );
