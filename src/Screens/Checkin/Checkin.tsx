@@ -13,7 +13,7 @@ import  MaterialCommunityIcons  from '@expo/vector-icons/MaterialCommunityIcons'
 import { Button } from "../../components/Button";
 export const Checkin = () => {
   const navigation = useNavigation<propsStack>();
-  const goToHome = () => {
+  const goToCheckin = () => {
     navigation.navigate("getName");
   };
   return (
@@ -28,7 +28,7 @@ export const Checkin = () => {
         </LogoText>
       </LogoWrapper>
       <ButtonWrapper>
-          <Button onPress={goToHome} color="white" bgColor="#2EDBBC">Entrar</Button>   
+          <Button onPress={goToCheckin} color="white" bgColor="#2EDBBC">Entrar</Button>   
       </ButtonWrapper>
       <MaterialCommunityIcons name='hamburger' size={50} color='#26A58E'/>
     </Container>

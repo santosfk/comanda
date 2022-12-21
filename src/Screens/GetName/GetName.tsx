@@ -9,11 +9,17 @@ import {
   Line,
 } from "./style";
 import { FontAwesome } from "@expo/vector-icons";
-
+import { Button } from "../../components/Button";
+import { useNavigation } from "@react-navigation/native";
+import { propsStack } from "../../Routes/models";
 export const GetName = () => {
   const [userIconColor, setUserIconColor] = useState("#000");
   const userIconIsFocused = () => {
     setUserIconColor("#2EDBBC");
+  };
+  const navigation = useNavigation<propsStack>();
+  const goToHome = () => {
+    navigation.navigate("home");
   };
  
   return (
@@ -30,6 +36,7 @@ export const GetName = () => {
         </InputWrapper>
         <Line />
       </InputsContainer>
+          <Button bgColor="#2EDBBC" color="white" onPress={goToHome}>Continuar</Button>
     </Container>
   );
 };
