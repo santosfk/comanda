@@ -7,6 +7,15 @@ export const StyledButton = styled.Pressable<{
   background-color: ${({ bgColor }) => bgColor};
   align-items: center;
   justify-content: center;
-  padding: 20px 100px;
   border-radius: 10;
+
 `;
+export const Text = styled.Text<{
+  color?:string
+}>`
+color: ${({color})=>color? color:'black'};
+font-weight: bold;
+font-size: 22px;
+padding: 20px 100px;
+text-transform: uppercase;
+`

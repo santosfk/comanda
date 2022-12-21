@@ -1,15 +1,15 @@
-import { View, Text, } from 'react-native'
-import {StyledButton} from './style'
+import { View, } from 'react-native'
+import {StyledButton,Text} from './style'
 import React from 'react'
 type Props = {
     children:string,
     bgColor:string,
-    color?:string
+    color?:string,
+    onPress:()=>void
 }
-export const Button = ({children,bgColor,color}:Props) => {
+export const Button = ({children,bgColor,color,onPress}:Props) => {
   return (
-
-      <StyledButton bgColor={bgColor} color={color}>{children}</StyledButton>
+      <StyledButton onPress={onPress} bgColor={bgColor}><Text  color={color} style={{fontWeight:'bold'}}>{children}</Text></StyledButton>
 
   )
 }
