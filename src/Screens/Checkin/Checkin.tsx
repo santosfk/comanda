@@ -2,9 +2,7 @@ import React from "react";
 import {
   Container,
   EnterButton,
-  ButtonText,
   ButtonWrapper,
-  ExitButton,
   LogoText,
   LogoWrapper
 } from "./style";
@@ -12,7 +10,7 @@ import { useNavigation } from "@react-navigation/native";
 import { Text,Image } from "react-native";
 import { propsStack } from "../../Routes/models";
 import  MaterialCommunityIcons  from '@expo/vector-icons/MaterialCommunityIcons';
-
+import { Button } from "../../components/Button";
 export const Checkin = () => {
   const navigation = useNavigation<propsStack>();
   const goToHome = () => {
@@ -30,9 +28,7 @@ export const Checkin = () => {
         </LogoText>
       </LogoWrapper>
       <ButtonWrapper>
-        <EnterButton onPress={goToHome}>
-          <ButtonText>Entrar</ButtonText>
-        </EnterButton>
+          <Button onPress={goToHome} color="white" bgColor="#2EDBBC">Entrar</Button>   
       </ButtonWrapper>
       <MaterialCommunityIcons name='hamburger' size={50} color='#26A58E'/>
     </Container>
