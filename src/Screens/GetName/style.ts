@@ -7,7 +7,7 @@ export const Container = styled.View`
 `;
 export const Title = styled.Text`
   font-size: 20px;
-  margin-top: -100px;
+  font-weight: bold;
 `;
 export const InputsContainer = styled.View`
   align-items: center;
@@ -19,9 +19,9 @@ export const NameInput = styled.TextInput`
   margin-left: 10px;
 `;
 export const Line = styled.View`
-  width: 150px;
+  width: 200px;
   height: 3px;
-  margin-left: 40px;
+  
   margin-top: -10px;
   background: rgba(80, 79, 73, 0.65);
 `;
