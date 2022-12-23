@@ -16,6 +16,6 @@ export const Text = styled.Text<{
 color: ${({color})=>color? color:'black'};
 font-weight: bold;
 font-size: 22px;
-padding: 20px 100px;
+padding: 20px 60px;
 text-transform: uppercase;
 `
