@@ -1,0 +1,25 @@
+{
+    "tables":[
+       { "status":"anotado",
+        "clients_number":4,
+        "products":[
+            {
+
+                "product":{
+                    "name":"Suco de Laranja",
+                    "price":15.50
+                }
+            }
+    ]},
+        { "status":"andamento",
+        "clients_number":4,
+        "products":[{
+            "product":{
+                "name":"X-bacon",
+                "price":20.50
+            }
+        }
+    ]}
+    ]
+    
+}
