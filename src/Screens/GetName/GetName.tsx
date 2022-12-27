@@ -19,7 +19,7 @@ export const GetName = () => {
   };
   const navigation = useNavigation<propsStack>();
   const goToHome = () => {
-    navigation.navigate("home");
+    navigation.navigate("homeRoutes");
   };
  
   return (

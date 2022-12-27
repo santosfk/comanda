@@ -8,7 +8,7 @@ export default function App() {
   const deviceTheme = useColorScheme();
 
   return (
-    <ThemeProvider theme={deviceTheme == "dark" ? theme.dark : theme.light}>
+    <ThemeProvider theme={theme.light} >
       <InitialRoutes />
     </ThemeProvider>
   );

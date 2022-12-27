@@ -10,6 +10,7 @@ export const HomeRoutes = () => {
   return (
     <Tab.Navigator
     screenOptions={({ route }) => ({
+      headerShown:false,
       tabBarIcon: ({ focused, size }) => {
         let iconName;
         let color = focused? "#2EDBBC" : 'black'
