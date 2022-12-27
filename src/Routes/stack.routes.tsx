@@ -9,13 +9,13 @@ export const CheckinRoutes = () => {
   return (
     <Navigator
       screenOptions={{
-        headerShown: true,
+        headerShown: false,
         headerTintColor: "#26A58E",
       }}
     >
       <Screen name="checkin" component={Checkin} />
       <Screen name="getName" component={GetName} />
-      <Screen name="home" component={HomeRoutes} />
+      <Screen  name="homeRoutes" component={HomeRoutes} />
     </Navigator>
   );
 };
