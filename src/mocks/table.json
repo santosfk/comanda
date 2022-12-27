@@ -1,6 +1,8 @@
 {
     "tables":[
-       { "status":"anotado",
+       { 
+       "id":1, 
+       "status":"anotado",
         "clients_number":4,
         "products":[
             {
@@ -11,7 +13,8 @@
                 }
             }
     ]},
-        { "status":"andamento",
+        {  "id":1, 
+            "status":"andamento",
         "clients_number":4,
         "products":[{
             "product":{
