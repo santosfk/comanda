@@ -1,28 +1,30 @@
 {
-    "tables":[
-       { 
-       "id":1, 
-       "status":"anotado",
-        "clients_number":4,
-        "products":[
-            {
-
-                "product":{
-                    "name":"Suco de Laranja",
-                    "price":15.50
-                }
-            }
-    ]},
-        {  "id":2, 
-            "status":"andamento",
-        "clients_number":4,
-        "products":[{
-            "product":{
-                "name":"X-bacon",
-                "price":20.50
-            }
+  "tables": [
+    {
+      "id": 1,
+      "status": "anotado",
+      "clients_number": 4,
+      "products": [
+        {
+          "product": {
+            "name": "Suco de Laranja",
+            "price": 15.5
+          }
         }
-    ]}
-    ]
-    
+      ]
+    },
+    {
+      "id": 2,
+      "status": "andamento",
+      "clients_number": 4,
+      "products": [
+        {
+          "product": {
+            "name": "X-bacon",
+            "price": 20.5
+          }
+        }
+      ]
+    }
+  ]
 }
