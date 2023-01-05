@@ -7,12 +7,14 @@ export const Home = () => {
   return (
     <Container>
       <FlatList
+        style={{ paddingTop: 50 }}
         data={table.tables}
+        ListHeaderComponent={<Text>Mesas</Text>}
         renderItem={({ item }) => (
           <Table
             key={item.id}
             id={item.id}
-            clients={item.clients_number}
+            clientsNumber={item.clients_number}
             status={item.status}
           />
         )}
