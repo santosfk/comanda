@@ -21,11 +21,14 @@ export const Status = styled.Text`
 margin-bottom:35px;
 color: ${({theme})=> theme.yellow};
 font-weight: 600;
+text-transform: uppercase;
+font-size: 10px;
 `
 export const ClientsNumber = styled.View`
 display: flex;
 align-items: center;
 flex-direction: row;
 gap: 50px;
+
 color: #5F5959;
 `

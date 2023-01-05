@@ -5,6 +5,7 @@ import { Checkin } from "../Screens/Checkin";
 import { Home } from "../Screens/HomeScreens/Home";
 import { AntDesign, Entypo, FontAwesome, Ionicons } from "@expo/vector-icons";
 import { Search } from "../Screens/HomeScreens/Search";
+import { User } from "../Screens/HomeScreens/User";
 const Tab = createBottomTabNavigator();
 export const HomeRoutes = () => {
   return (
@@ -20,6 +21,9 @@ export const HomeRoutes = () => {
          if(route.name === 'search'){
           return <FontAwesome name="search" size={size} color={color}/>
          }
+         if(route.name === 'user'){
+          return <FontAwesome name="user" size={size} color={color}/>
+         }
          
     
 
@@ -33,6 +37,7 @@ export const HomeRoutes = () => {
     >
       <Tab.Screen name="home" component={Home}  />
       <Tab.Screen name="search" component={Search}  />
+      <Tab.Screen name="user" component={User}  />
     </Tab.Navigator>
   );
 };
