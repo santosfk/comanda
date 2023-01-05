@@ -13,9 +13,7 @@ export const Home = () => {
         renderItem={({ item }) => (
           <Table
             key={item.id}
-            id={item.id}
-            clientsNumber={item.clients_number}
-            status={item.status}
+           data={item}
           />
         )}
       />
