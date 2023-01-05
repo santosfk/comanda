@@ -1,15 +1,23 @@
-import { View, Text } from "react-native";
-import { Container } from "./style";
+import { View, Text, useWindowDimensions } from "react-native";
+import { Container, ClientsNumber, Status, TableTitle } from "./style";
+import { FontAwesome } from "@expo/vector-icons";
 import React from "react";
+
 type TableProps = {
   id: number;
   status: string;
-  clients: number;
+  clientsNumber: number;
 };
-export const Table = ({ clients, id, status }: TableProps) => {
+export const Table = ({ clientsNumber, id, status }: TableProps) => {
+  const window = useWindowDimensions();
   return (
-    <Container>
-      <Text>Table</Text>
+    <Container width={window.width}>
+      <TableTitle>Mesa {id}</TableTitle>
+      <Status>{status}</Status>
+      <ClientsNumber>
+        <Text>{clientsNumber}</Text>
+        <FontAwesome name="user" style={{marginLeft:10}} size={20} color="#2EDBBC" />
+      </ClientsNumber>
     </Container>
   );
 };
