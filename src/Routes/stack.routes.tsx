@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Checkin } from "../Screens/Checkin";
 import { HomeRoutes } from "./HomeRoutes";
 import { GetName } from "../Screens/GetName";
+import { TableScreen } from "../Screens/TableScreen";
 const { Screen, Navigator } = createNativeStackNavigator();
 export const CheckinRoutes = () => {
   return (
@@ -16,6 +17,7 @@ export const CheckinRoutes = () => {
       <Screen name="checkin" component={Checkin} />
       <Screen name="getName" component={GetName} />
       <Screen  name="homeRoutes" component={HomeRoutes} />
+      <Screen  name="tableScreen" component={TableScreen} />
     </Navigator>
   );
 };
