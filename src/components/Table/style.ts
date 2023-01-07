@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 import { Dimensions, StyleSheet } from "react-native";
 const width = Dimensions.get("screen").width;
-export const Container = styled.View`
+export const Container = styled.Pressable`
 width: ${width - 20}px;
 background-color: ${({theme})=> theme.background_green_100};
 justify-content: space-around;

@@ -2,8 +2,10 @@ import { View, Text, useWindowDimensions } from "react-native";
 import { Container, ClientsNumber, Status, TableTitle } from "./style";
 import { FontAwesome } from "@expo/vector-icons";
 import React from "react";
-
-
+import { useDispatch } from "react-redux";
+import { setTableInfo } from "../../redux/tableData";
+import { useNavigation } from "@react-navigation/native";
+import { propsStack } from "../../Routes/models";
 type TableProps = {
   data:{
     id:number,
@@ -18,9 +20,27 @@ type TableProps = {
   }
 };
 export const Table = ({ data}:TableProps ) => {
+  const dispatch = useDispatch();
   const window = useWindowDimensions();
+  const navigation = useNavigation<propsStack>();
+  const goToTableScreen = () => {
+    navigation.navigate("tableScreen");
+  };
+  const setTablePost = () =>{
+    const tableData = {
+      id: data.id,
+      status:data.status,
+      clients_number: data.clients_number,
+      products:data.products,
+    };
+    dispatch(setTableInfo(tableData));
+  }
+  const postClicked = () =>{
+    setTablePost()
+    goToTableScreen()
+  }
   return (
-    <Container width={window.width}>
+    <Container onPress={postClicked} >
       <TableTitle>Mesa {data.id}</TableTitle>
       <Status>{data.status}</Status>
       <ClientsNumber>

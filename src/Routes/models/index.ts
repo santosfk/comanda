@@ -5,5 +5,6 @@ type RootParamsList = {
   homeRoutes:undefined;
   getName:undefined;
   search :undefined
+  tableScreen :undefined
 };
 export type propsStack = NativeStackNavigationProp<RootParamsList>;
