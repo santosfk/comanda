@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import tableData from "./tableData";
-
+import setTableInfo from "./tableSelectedData";
+import tablesData from './allTableData'
 export default configureStore({
   reducer: {
-    tableData: tableData,
+    setTableInfo: setTableInfo,
+    tablesData:tablesData
   },
 });
