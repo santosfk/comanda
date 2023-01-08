@@ -3,7 +3,7 @@ import { Container, ClientsNumber, Status, TableTitle } from "./style";
 import { FontAwesome } from "@expo/vector-icons";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { setTableInfo } from "../../redux/tableData";
+import { setTableInfo } from "../../redux/tableSelectedData";
 import { useNavigation } from "@react-navigation/native";
 import { propsStack } from "../../Routes/models";
 type TableProps = {

@@ -3,7 +3,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 export const TableScreen = () => {
   const { id, status, clients_number, products } = useSelector(
-    (state: any) => state.tableData
+    (state: any) => state.setTableInfo
   );
   console.log(id, status, clients_number, products)
   return (
