@@ -12,10 +12,11 @@ export const StyledButton = styled.Pressable<{
 `;
 export const Text = styled.Text<{
   color?:string
+  fontSize?:number
 }>`
 color: ${({color})=>color? color:'black'};
 font-weight: bold;
-font-size: 22px;
+font-size: ${({fontSize})=>fontSize? fontSize:22}px;
 padding: 20px 60px;
 text-transform: uppercase;
 `

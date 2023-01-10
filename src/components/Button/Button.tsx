@@ -5,11 +5,12 @@ type Props = {
     children:string,
     bgColor:string,
     color?:string,
+    fontSize?:number,
     onPress:()=>void
 }
-export const Button = ({children,bgColor,color,onPress}:Props) => {
+export const Button = ({children,bgColor,color,onPress,fontSize}:Props) => {
   return (
-      <StyledButton onPress={onPress} bgColor={bgColor}><Text  color={color} style={{fontWeight:'bold'}}>{children}</Text></StyledButton>
+      <StyledButton  onPress={onPress} bgColor={bgColor}><Text   color={color} style={{fontWeight:'bold'}} fontSize={fontSize}>{children}</Text></StyledButton>
 
   )
 }
