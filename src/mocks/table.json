@@ -6,10 +6,12 @@
       "clients_number": 4,
       "products": [
         {
-          "product": {
-            "name": "Suco de Laranja",
-            "price": 15.5
-          }
+          "name": "Suco de Laranja",
+          "price": 15.5
+        },
+        {
+          "name": "suco de uva",
+          "price": 15.5
         }
       ]
     },
@@ -22,6 +24,10 @@
           "product": {
             "name": "X-bacon",
             "price": 20.5
+          },
+          "product": {
+            "name": "suco de uva",
+            "price": 15.5
           }
         }
       ]
