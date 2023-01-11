@@ -4,14 +4,7 @@ const infoTableModel = {
   id: undefined,
   status: "",
   clients_number: undefined,
-  products: [
-    {
-      product: {
-        name: "",
-        price: undefined,
-      },
-    },
-  ],
+  products: [{}],
 };
 export const slice = createSlice({
   name: "tableInfo",
@@ -23,7 +16,7 @@ export const slice = createSlice({
         id: payload.id,
         status: payload.status,
         clients_number: payload.clients_number,
-        products:payload.products
+        products: payload.products,
       };
     },
   },
