@@ -17,9 +17,11 @@ color: #5F5959;
 font-size: 18px;
 
 `
-export const Status = styled.Text`
+export const Status = styled.Text<{
+    color:string
+}>`
 margin-bottom:35px;
-color: ${({theme})=> theme.yellow};
+color: ${({color})=> color};
 font-weight: 600;
 text-transform: uppercase;
 font-size: 10px;

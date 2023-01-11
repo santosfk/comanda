@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { setTableInfo } from "../../redux/tableSelectedData";
 import { useNavigation } from "@react-navigation/native";
 import { propsStack } from "../../Routes/models";
+import { statusColor } from "../../utils/getStatusColor";
 type TableProps = {
   data:{
     id:number,
@@ -42,7 +43,7 @@ export const Table = ({ data}:TableProps ) => {
   return (
     <Container onPress={postClicked} >
       <TableTitle>Mesa {data.id}</TableTitle>
-      <Status>{data.status}</Status>
+      <Status color={statusColor(data.status)}>{data.status}</Status>
       <ClientsNumber>
         <Text>{data.clients_number}</Text>
         <FontAwesome name="user" style={{marginLeft:10}} size={20} color="#2EDBBC" />
