@@ -8,45 +8,50 @@ import { useNavigation } from "@react-navigation/native";
 import { propsStack } from "../../Routes/models";
 import { statusColor } from "../../utils/getStatusColor";
 type TableProps = {
-  data:{
-    id:number,
-    status:string,
-    clients_number:number,
-    products:{
-      product:{
-        name:string,
-        price:number
-      }
-    }[]
-  }
+  data: {
+    id: number;
+    status: string;
+    clients_number: number;
+    products: {
+      product: {
+        name: string;
+        price: number;
+      };
+    }[];
+  };
 };
-export const Table = ({ data}:TableProps ) => {
+export const Table = ({ data }: TableProps) => {
   const dispatch = useDispatch();
   const window = useWindowDimensions();
   const navigation = useNavigation<propsStack>();
   const goToTableScreen = () => {
     navigation.navigate("tableScreen");
   };
-  const setTablePost = () =>{
+  const setTablePost = () => {
     const tableData = {
       id: data.id,
-      status:data.status,
+      status: data.status,
       clients_number: data.clients_number,
-      products:data.products,
+      products: data.products,
     };
     dispatch(setTableInfo(tableData));
-  }
-  const postClicked = () =>{
-    setTablePost()
-    goToTableScreen()
-  }
+  };
+  const postClicked = () => {
+    setTablePost();
+    goToTableScreen();
+  };
   return (
-    <Container onPress={postClicked} >
+    <Container onPress={postClicked}>
       <TableTitle>Mesa {data.id}</TableTitle>
       <Status color={statusColor(data.status)}>{data.status}</Status>
       <ClientsNumber>
         <Text>{data.clients_number}</Text>
-        <FontAwesome name="user" style={{marginLeft:10}} size={20} color="#2EDBBC" />
+        <FontAwesome
+          name="user"
+          style={{ marginLeft: 10 }}
+          size={20}
+          color="#2EDBBC"
+        />
       </ClientsNumber>
     </Container>
   );
