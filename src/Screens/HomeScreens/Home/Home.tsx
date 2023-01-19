@@ -9,11 +9,15 @@ import { Button } from "../../../components/Button";
 import { useTablesData } from "../../../utils/getTablesData";
 import tables from "../../../mocks/table.json";
 import { useInitialData } from "../../../utils/setInitialData";
+import { useNavigation } from "@react-navigation/native";
+import { propsStack } from "../../../Routes/models";
 
 export const Home = () => {
   const [modalOn, setModalOn] = useState(false);
   useInitialData();
   const { data } = useTablesData();
+  const navigation = useNavigation<propsStack>();
+
   return (
     <Container>
       {modalOn && <AddModal />}
@@ -27,7 +31,7 @@ export const Home = () => {
         fontSize={12}
         bgColor="#2EDBBC"
         color="white"
-        onPress={() => console.log("clicado")}
+        onPress={() => navigation.navigate("addTable")}
       >
         Adicionar
       </Button>
