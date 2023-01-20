@@ -9,4 +9,7 @@ const getTables = async (): Promise<Table[]> => {
 export const setNewTable = (table: Table) => {
   axios.post(`${url}comanda`, table);
 };
+export const DeleteTable = (id: Number) => {
+  axios.delete(`${url}comanda/${id}`);
+};
 export { getTables };
