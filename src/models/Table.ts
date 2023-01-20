@@ -1,6 +1,11 @@
 export interface Table {
   id: Number;
   status: string;
-  clientsNumber: Number;
-  products: [];
+  clientsNumber: number;
+  products: [
+    {
+      name: string;
+      price: number;
+    }
+  ];
 }
