@@ -1,5 +1,5 @@
 export interface Table {
-  id: Number;
+  id?: Number;
   status: string;
   clientsNumber: number;
   products: [
