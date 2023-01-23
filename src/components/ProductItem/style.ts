@@ -21,5 +21,13 @@ export const NameStyled = styled.Text`
 export const PriceStyled = styled.Text`
   color: #26a58e;
   font-size: 16px;
-  width: 80px;
+  font-weight: bold;
+  width: 100px;
+`;
+export const IconButtons = styled.TouchableOpacity<{
+  bgColor?: string;
+}>`
+  background-color: ${({ bgColor }) => (bgColor ? bgColor : "transparent")};
+  padding: 10px 20px;
+  border-radius: 10px;
 `;

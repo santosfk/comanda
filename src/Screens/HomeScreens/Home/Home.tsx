@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import { Container } from "./style";
 import table from "../../../mocks/table.json";
-import { Table } from "../../../components/Table";
+import { TableItem } from "../../../components/Table/Table";
 import { setTablesData } from "../../../redux/allTableData";
 import { AddModal } from "../../../components/AddModal";
 import { Button } from "../../../components/Button";
@@ -11,21 +11,41 @@ import tables from "../../../mocks/table.json";
 import { useInitialData } from "../../../utils/setInitialData";
 import { useNavigation } from "@react-navigation/native";
 import { propsStack } from "../../../Routes/models";
+import { getTables } from "../../../api/api";
+import { Table } from "../../../models/Table";
 
 export const Home = () => {
   const [modalOn, setModalOn] = useState(false);
+  const [tablesData, setTablesData] = useState<Table[]>();
   useInitialData();
-  const { data } = useTablesData();
   const navigation = useNavigation<propsStack>();
-
+  const getTablesData = async () => {
+    try {
+      const response = await getTables();
+      setTablesData(response);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  useEffect(() => {
+    getTablesData();
+  }, []);
   return (
     <Container>
       {modalOn && <AddModal />}
       <FlatList
         style={{ paddingTop: 50 }}
-        data={data}
+        data={tablesData}
         ListHeaderComponent={<Text>Mesas</Text>}
-        renderItem={({ item }) => <Table key={item.id} data={item} />}
+        renderItem={({ item, index }) => (
+          <TableItem
+            key={index}
+            clientsNumber={item.clientsNumber}
+            id={item.id}
+            products={item.products}
+            status={item.status}
+          />
+        )}
       />
       <Button
         fontSize={12}

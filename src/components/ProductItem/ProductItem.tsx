@@ -1,6 +1,12 @@
 import { View, Text } from "react-native";
 import React from "react";
-import { Container, WrapperItems, NameStyled, PriceStyled } from "./style";
+import {
+  Container,
+  WrapperItems,
+  NameStyled,
+  PriceStyled,
+  IconButtons,
+} from "./style";
 import { FontAwesome5 } from "@expo/vector-icons";
 
 type Props = {
@@ -8,15 +14,20 @@ type Props = {
   price: number;
 };
 export const ProductItem = ({ name, price }: Props) => {
+  price.toFixed(2);
   return (
     <Container>
       <WrapperItems>
         <NameStyled>{name}</NameStyled>
-        <PriceStyled>{price}</PriceStyled>
+        <PriceStyled>R${price}</PriceStyled>
       </WrapperItems>
       <WrapperItems>
-        <FontAwesome5 name="trash" size={24} color="red" />
-        <FontAwesome5 name="edit" size={24} color="#5F5959" />
+        <IconButtons bgColor="black">
+          <FontAwesome5 name="trash" size={20} color="red" />
+        </IconButtons>
+        <IconButtons bgColor="#26a58e">
+          <FontAwesome5 name="edit" size={20} color="white" />
+        </IconButtons>
       </WrapperItems>
     </Container>
   );

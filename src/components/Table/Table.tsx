@@ -7,20 +7,9 @@ import { setTableInfo } from "../../redux/tableSelectedData";
 import { useNavigation } from "@react-navigation/native";
 import { propsStack } from "../../Routes/models";
 import { statusColor } from "../../utils/getStatusColor";
-type TableProps = {
-  data: {
-    id: number;
-    status: string;
-    clients_number: number;
-    products: {
-      product: {
-        name: string;
-        price: number;
-      };
-    }[];
-  };
-};
-export const Table = ({ data }: TableProps) => {
+import { Table } from "../../models/Table";
+
+export const TableItem = (data: Table) => {
   const dispatch = useDispatch();
   const window = useWindowDimensions();
   const navigation = useNavigation<propsStack>();
@@ -31,7 +20,7 @@ export const Table = ({ data }: TableProps) => {
     const tableData = {
       id: data.id,
       status: data.status,
-      clients_number: data.clients_number,
+      clients_number: data.clientsNumber,
       products: data.products,
     };
     dispatch(setTableInfo(tableData));
@@ -45,7 +34,7 @@ export const Table = ({ data }: TableProps) => {
       <TableTitle>Mesa {data.id}</TableTitle>
       <Status color={statusColor(data.status)}>{data.status}</Status>
       <ClientsNumber>
-        <Text>{data.clients_number}</Text>
+        <Text>{data.clientsNumber}</Text>
         <FontAwesome
           name="user"
           style={{ marginLeft: 10 }}
