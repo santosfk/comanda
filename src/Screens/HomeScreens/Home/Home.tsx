@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, FlatList, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  FlatList,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import { Container } from "./style";
 import table from "../../../mocks/table.json";
 import { TableItem } from "../../../components/Table/Table";
@@ -11,7 +17,7 @@ import tables from "../../../mocks/table.json";
 import { useInitialData } from "../../../utils/setInitialData";
 import { useNavigation } from "@react-navigation/native";
 import { propsStack } from "../../../Routes/models";
-import { getTables } from "../../../api/api";
+import { DeleteTable, getTables, setNewTable } from "../../../api/api";
 import { Table } from "../../../models/Table";
 
 export const Home = () => {
@@ -19,9 +25,33 @@ export const Home = () => {
   const [tablesData, setTablesData] = useState<Table[]>();
   useInitialData();
   const navigation = useNavigation<propsStack>();
+  const setTables = async () => {
+    try {
+      setNewTable({
+        clientsNumber: 4,
+        products: [
+          {
+            name: "batata",
+            price: 20,
+          },
+        ],
+        status: "anotado",
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  const deleteTable = async () => {
+    try {
+      DeleteTable(4);
+    } catch (e) {
+      console.log(e);
+    }
+  };
   const getTablesData = async () => {
     try {
       const response = await getTables();
+
       setTablesData(response);
     } catch (e) {
       console.log(e);
@@ -33,20 +63,22 @@ export const Home = () => {
   return (
     <Container>
       {modalOn && <AddModal />}
-      <FlatList
-        style={{ paddingTop: 50 }}
-        data={tablesData}
-        ListHeaderComponent={<Text>Mesas</Text>}
-        renderItem={({ item, index }) => (
-          <TableItem
-            key={index}
-            clientsNumber={item.clientsNumber}
-            id={item.id}
-            products={item.products}
-            status={item.status}
-          />
-        )}
-      />
+      <ScrollView>
+        <FlatList
+          style={{ paddingTop: 50 }}
+          data={tablesData}
+          ListHeaderComponent={<Text>Mesas</Text>}
+          renderItem={({ item, index }) => (
+            <TableItem
+              key={index}
+              clientsNumber={item.clientsNumber}
+              id={item.id}
+              products={item.products}
+              status={item.status}
+            />
+          )}
+        />
+      </ScrollView>
       <Button
         fontSize={12}
         bgColor="#2EDBBC"
