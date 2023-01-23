@@ -14,7 +14,7 @@ type Props = {
   price: number;
 };
 export const ProductItem = ({ name, price }: Props) => {
-  price.toFixed(2);
+  price?.toFixed(2);
   return (
     <Container>
       <WrapperItems>
