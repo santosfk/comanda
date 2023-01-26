@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-import { Container } from "./style";
+import { AddButtonWrapper, Container, LoadingText } from "./style";
 import table from "../../../mocks/table.json";
 import { TableItem } from "../../../components/Table/Table";
 import { setTablesData } from "../../../redux/allTableData";
@@ -47,14 +47,14 @@ export const Home = () => {
 
   return (
     <Container>
-      {isLoading && <Text>carregando</Text>}
       {modalOn && <AddModal />}
-      <ScrollView>
-        <FlatList
-          style={{ paddingTop: 50 }}
-          data={data}
-          ListHeaderComponent={<Text>Mesas</Text>}
-          ListFooterComponent={
+
+      <FlatList
+        style={{ paddingTop: 50 }}
+        data={data}
+        ListHeaderComponent={<Text>Mesas</Text>}
+        ListFooterComponent={
+          <AddButtonWrapper>
             <Button
               fontSize={12}
               bgColor="#2EDBBC"
@@ -63,18 +63,19 @@ export const Home = () => {
             >
               Adicionar
             </Button>
-          }
-          renderItem={({ item, index }) => (
-            <TableItem
-              key={index}
-              clientsNumber={item.clientsNumber}
-              id={item.id}
-              products={item.products}
-              status={item.status}
-            />
-          )}
-        />
-      </ScrollView>
+          </AddButtonWrapper>
+        }
+        renderItem={({ item, index }) => (
+          <TableItem
+            key={index}
+            clientsNumber={item.clientsNumber}
+            id={item.id}
+            products={item.products}
+            status={item.status}
+          />
+        )}
+      />
+      {isLoading && <LoadingText style={{ flex: 1 }}>Carregando</LoadingText>}
     </Container>
   );
 };
