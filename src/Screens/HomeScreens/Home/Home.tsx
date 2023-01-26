@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-import { Container } from "./style";
+import { AddButtonWrapper, Container, LoadingText } from "./style";
 import table from "../../../mocks/table.json";
 import { TableItem } from "../../../components/Table/Table";
 import { setTablesData } from "../../../redux/allTableData";
@@ -19,10 +19,13 @@ import { useNavigation } from "@react-navigation/native";
 import { propsStack } from "../../../Routes/models";
 import { DeleteTable, getTables, setNewTable } from "../../../api/api";
 import { Table } from "../../../models/Table";
+import { useQuery } from "react-query";
 
 export const Home = () => {
   const [modalOn, setModalOn] = useState(false);
   const [tablesData, setTablesData] = useState<Table[]>();
+  const { data, isLoading } = useQuery("getTables", getTables);
+
   useInitialData();
   const navigation = useNavigation<propsStack>();
   const setTables = async () => {
@@ -41,52 +44,38 @@ export const Home = () => {
       console.log(e);
     }
   };
-  const deleteTable = async () => {
-    try {
-      DeleteTable(4);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-  const getTablesData = async () => {
-    try {
-      const response = await getTables();
 
-      setTablesData(response);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-  useEffect(() => {
-    getTablesData();
-  }, []);
   return (
     <Container>
       {modalOn && <AddModal />}
-      <ScrollView>
-        <FlatList
-          style={{ paddingTop: 50 }}
-          data={tablesData}
-          ListHeaderComponent={<Text>Mesas</Text>}
-          renderItem={({ item, index }) => (
-            <TableItem
-              key={index}
-              clientsNumber={item.clientsNumber}
-              id={item.id}
-              products={item.products}
-              status={item.status}
-            />
-          )}
-        />
-      </ScrollView>
-      <Button
-        fontSize={12}
-        bgColor="#2EDBBC"
-        color="white"
-        onPress={() => navigation.navigate("addTable")}
-      >
-        Adicionar
-      </Button>
+
+      <FlatList
+        style={{ paddingTop: 50 }}
+        data={data}
+        ListHeaderComponent={<Text>Mesas</Text>}
+        ListFooterComponent={
+          <AddButtonWrapper>
+            <Button
+              fontSize={12}
+              bgColor="#2EDBBC"
+              color="white"
+              onPress={() => navigation.navigate("addTable")}
+            >
+              Adicionar
+            </Button>
+          </AddButtonWrapper>
+        }
+        renderItem={({ item, index }) => (
+          <TableItem
+            key={index}
+            clientsNumber={item.clientsNumber}
+            id={item.id}
+            products={item.products}
+            status={item.status}
+          />
+        )}
+      />
+      {isLoading && <LoadingText style={{ flex: 1 }}>Carregando</LoadingText>}
     </Container>
   );
 };
