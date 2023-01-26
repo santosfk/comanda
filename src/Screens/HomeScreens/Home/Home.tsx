@@ -19,10 +19,13 @@ import { useNavigation } from "@react-navigation/native";
 import { propsStack } from "../../../Routes/models";
 import { DeleteTable, getTables, setNewTable } from "../../../api/api";
 import { Table } from "../../../models/Table";
+import { useQuery } from "react-query";
 
 export const Home = () => {
   const [modalOn, setModalOn] = useState(false);
   const [tablesData, setTablesData] = useState<Table[]>();
+  const { data, isLoading } = useQuery("getTables", getTables);
+
   useInitialData();
   const navigation = useNavigation<propsStack>();
   const setTables = async () => {
@@ -41,33 +44,26 @@ export const Home = () => {
       console.log(e);
     }
   };
-  const deleteTable = async () => {
-    try {
-      DeleteTable(4);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-  const getTablesData = async () => {
-    try {
-      const response = await getTables();
 
-      setTablesData(response);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-  useEffect(() => {
-    getTablesData();
-  }, []);
   return (
     <Container>
+      {isLoading && <Text>carregando</Text>}
       {modalOn && <AddModal />}
       <ScrollView>
         <FlatList
           style={{ paddingTop: 50 }}
-          data={tablesData}
+          data={data}
           ListHeaderComponent={<Text>Mesas</Text>}
+          ListFooterComponent={
+            <Button
+              fontSize={12}
+              bgColor="#2EDBBC"
+              color="white"
+              onPress={() => navigation.navigate("addTable")}
+            >
+              Adicionar
+            </Button>
+          }
           renderItem={({ item, index }) => (
             <TableItem
               key={index}
@@ -79,14 +75,6 @@ export const Home = () => {
           )}
         />
       </ScrollView>
-      <Button
-        fontSize={12}
-        bgColor="#2EDBBC"
-        color="white"
-        onPress={() => navigation.navigate("addTable")}
-      >
-        Adicionar
-      </Button>
     </Container>
   );
 };
