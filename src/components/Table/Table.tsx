@@ -17,6 +17,7 @@ export const TableItem = (data: Table) => {
     navigation.navigate("tableScreen");
   };
   const setTablePost = () => {
+    console.log(data);
     const tableData = {
       id: data.id,
       status: data.status,
@@ -38,7 +39,7 @@ export const TableItem = (data: Table) => {
     }
   };
   return (
-    <Container>
+    <Container onPress={() => postClicked()}>
       <TableTitle>Mesa {data.id}</TableTitle>
       <Status color={statusColor(data.status)}>{data.status}</Status>
       <ClientsNumber>
